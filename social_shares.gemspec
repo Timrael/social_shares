@@ -10,10 +10,10 @@ Gem::Specification.new do |spec|
   spec.email         = ['timraell@gmail.com']
   spec.summary       = %q{Check how many times url was shared in social networks.}
   spec.description   = %q{Check how many times url was shared in social networks.}
-  spec.homepage      = ''
+  spec.homepage      = 'https://twitter.com/Timrael'
   spec.license       = 'MIT'
 
-  spec.files         = `git ls-files -z`.split('\x0')
+  spec.files         = `git ls-files`.split("\n")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
