@@ -17,8 +17,7 @@ module SocialShares
     end
 
     def selected(url, selected_networks)
-      filtered_networks = selected_networks.map(&:to_sym) & SUPPORTED_NETWORKS
-      filtered_networks.inject({}) do |result, network_name|
+      filtered_networks(selected_networks).inject({}) do |result, network_name|
         result[network_name] = self.send(network_name, url)
         result
       end
@@ -26,6 +25,20 @@ module SocialShares
 
     def all(url)
       selected(url, SUPPORTED_NETWORKS)
+    end
+
+    def total(url, selected_networks)
+      selected(url, selected_networks).values.reduce(:+)
+    end
+
+    def has_any?(url, selected_networks)
+      !filtered_networks(selected_networks).find{|n| self.send(n, url) > 0}.nil?
+    end
+
+  private
+
+    def filtered_networks(selected_networks)
+      selected_networks.map(&:to_sym) & SUPPORTED_NETWORKS
     end
   end
 end
