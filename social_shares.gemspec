@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['timraell@gmail.com']
   spec.summary       = %q{Check how many times url was shared in social networks.}
   spec.description   = %q{Check how many times url was shared in social networks.}
-  spec.homepage      = 'https://twitter.com/Timrael'
+  spec.homepage      = 'https://github.com/Timrael/social_shares'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split("\n")
