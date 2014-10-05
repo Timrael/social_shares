@@ -10,6 +10,7 @@ Supported networks:
 
 Usage
 -----
+Currently all methods can raise exception when there is any error with network access.
 ```ruby
 :001 > require 'social_shares'
  => true
