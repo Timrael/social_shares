@@ -1,6 +1,11 @@
-Dir['./lib/social_shares/*.rb'].each {|file| require file }
 require 'rest-client'
 require 'oj'
+require 'social_shares/version'
+require 'social_shares/base'
+require 'social_shares/facebook'
+require 'social_shares/google'
+require 'social_shares/twitter'
+require 'social_shares/vkontakte'
 
 module SocialShares
   class << self
