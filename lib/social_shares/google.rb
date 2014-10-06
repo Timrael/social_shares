@@ -2,7 +2,7 @@ module SocialShares
   class Google < Base
     def shares
       response = RestClient.post(url, Oj.dump(params), content_type: :json, accept: :json)
-      Oj.load(response)[0]["result"]["metadata"]["globalCounts"]["count"].to_i
+      JSON.parse(response)[0]["result"]["metadata"]["globalCounts"]["count"].to_i
     end
 
   private

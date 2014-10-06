@@ -2,7 +2,7 @@ module SocialShares
   class Twitter < Base
     def shares
       response = RestClient.get(url)
-      Oj.load(response)["count"]
+      JSON.parse(response)["count"]
     end
 
   private
