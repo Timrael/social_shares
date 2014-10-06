@@ -32,11 +32,17 @@ Currently all methods can raise exception when there is any error with network a
  => {:vkontakte=>5, :facebook=>209, :google=>227, :twitter=>784}
 :000 > SocialShares.selected url, %w(facebook google)
  => {:facebook=>209, :google=>227}
- # Total sum of sharings in selected networks
+# Total sum of sharings in selected networks
 :000 > SocialShares.total url, %w(facebook google)
  => 436
+# Second arg is optional, by default it takes all networks
+:000 > SocialShares.total url
+ => 1225
 # Note that #has_any? is faster than (#total > 0), coz it stops on first network that has at least 1 sharing
 :000 > SocialShares.has_any? url, %w(facebook google)
+ => true
+# Second arg is optional, by default it takes all networks
+:000 > SocialShares.has_any? url
  => true
 ```
 

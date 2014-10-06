@@ -32,11 +32,11 @@ module SocialShares
       selected(url, SUPPORTED_NETWORKS)
     end
 
-    def total(url, selected_networks)
+    def total(url, selected_networks = SUPPORTED_NETWORKS)
       selected(url, selected_networks).values.reduce(:+)
     end
 
-    def has_any?(url, selected_networks)
+    def has_any?(url, selected_networks = SUPPORTED_NETWORKS)
       !filtered_networks(selected_networks).find{|n| self.send(n, url) > 0}.nil?
     end
 
