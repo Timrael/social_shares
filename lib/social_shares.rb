@@ -1,5 +1,5 @@
 require 'rest-client'
-require 'oj'
+require 'json'
 require 'social_shares/version'
 require 'social_shares/base'
 require 'social_shares/facebook'
