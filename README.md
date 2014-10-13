@@ -3,10 +3,12 @@ Social Shares
 Social shares is intended to easily check social sharings of an url.
 
 Supported networks:
-* facebook
-* google plus
-* twitter
-* vkontakte
+* [facebook](http://www.facebook.com/)
+* [google plus](https://plus.google.com)
+* [twitter](https://twitter.com/)
+* [vkontakte](http://vkontakte.ru/)
+* [mail.ru](http://mail.ru/)
+* [odnoklassniki](http://www.odnoklassniki.ru/)
 
 Usage
 -----
@@ -15,29 +17,25 @@ Currently all methods can raise exception when there is any error with network a
 :000 > require 'social_shares'
  => true
 :000 > SocialShares.supported_networks
- => [:vkontakte, :facebook, :google, :twitter]
-:000 > url = 'https://www.ruby-toolbox.com/'
+ => [:vkontakte, :facebook, :google, :twitter, :mail_ru, :odnoklassniki]
+:000 > url = 'http://www.apple.com/'
  => "https://www.ruby-toolbox.com/"
 :000 > SocialShares.facebook url
-  => 209
-:000 > SocialShares.facebook url
- => 209
+ => 394927
 :000 > SocialShares.google url
- => 227
+ => 28289
 :000 > SocialShares.twitter url
- => 784
-:000 > SocialShares.vkontakte url
- => 5
+ => 1164675
 :000 > SocialShares.all url
- => {:vkontakte=>5, :facebook=>209, :google=>227, :twitter=>784}
+ => {:vkontakte=>43044, :facebook=>394927, :google=>28289, :twitter=>1164675, :mail_ru=>105, :odnoklassniki=>62}
 :000 > SocialShares.selected url, %w(facebook google)
- => {:facebook=>209, :google=>227}
+ => {:facebook=>394927, :google=>28289}
 # Total sum of sharings in selected networks
 :000 > SocialShares.total url, %w(facebook google)
- => 436
+ => 423216
 # Second arg is optional, by default it takes all networks
 :000 > SocialShares.total url
- => 1225
+ => 1631102
 # Note that #has_any? is faster than (#total > 0), coz it stops on first network that has at least 1 sharing
 :000 > SocialShares.has_any? url, %w(facebook google)
  => true

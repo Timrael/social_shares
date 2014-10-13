@@ -6,10 +6,12 @@ require 'social_shares/facebook'
 require 'social_shares/google'
 require 'social_shares/twitter'
 require 'social_shares/vkontakte'
+require 'social_shares/mail_ru'
+require 'social_shares/odnoklassniki'
 
 module SocialShares
   class << self
-    SUPPORTED_NETWORKS = [:vkontakte, :facebook, :google, :twitter]
+    SUPPORTED_NETWORKS = [:vkontakte, :facebook, :google, :twitter, :mail_ru, :odnoklassniki]
 
     def supported_networks
       SUPPORTED_NETWORKS
@@ -17,7 +19,8 @@ module SocialShares
 
     SUPPORTED_NETWORKS.each do |network_name|
       define_method(network_name) do |url|
-        Object.const_get("#{self.name}::#{network_name.to_s.capitalize}").new(url).shares
+        class_name = network_name.to_s.split('_').map(&:capitalize).join
+        SocialShares.const_get(class_name).new(url).shares
       end
     end
 
