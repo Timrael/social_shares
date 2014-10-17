@@ -9,10 +9,11 @@ require 'social_shares/vkontakte'
 require 'social_shares/mail_ru'
 require 'social_shares/odnoklassniki'
 require 'social_shares/reddit'
+require 'social_shares/linkedin'
 
 module SocialShares
   class << self
-    SUPPORTED_NETWORKS = [:vkontakte, :facebook, :google, :twitter, :mail_ru, :odnoklassniki, :reddit]
+    SUPPORTED_NETWORKS = [:vkontakte, :facebook, :google, :twitter, :mail_ru, :odnoklassniki, :reddit, :linkedin]
 
     def supported_networks
       SUPPORTED_NETWORKS
