@@ -3,7 +3,7 @@ module SocialShares
     def shares
       response = RestClient.get(url)
       children_data = JSON.parse(response)['data']['children']
-      children_data.map{|c| c['data']['score']}.reduce(:+)
+      children_data.map{|c| c['data']['score']}.reduce(:+) || 0
     end
 
     private
