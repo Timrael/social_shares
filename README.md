@@ -9,6 +9,7 @@ Supported networks:
 * [reddit](http://www.reddit.com/)
 * [linkedin](https://www.linkedin.com/)
 * [pinterest](http://www.pinterest.com/)
+* [stumbleupon](http://www.stumbleupon.com/)
 * [vkontakte](http://vkontakte.ru/)
 * [mail.ru](http://mail.ru/)
 * [odnoklassniki](http://www.odnoklassniki.ru/)
@@ -20,9 +21,9 @@ Currently all methods can raise exception when there is any error with network a
 :000 > require 'social_shares'
  => true
 :000 > SocialShares.supported_networks
- => [:vkontakte, :facebook, :google, :twitter, :mail_ru, :odnoklassniki, :reddit, :linkedin, :pinterest]
+ => [:vkontakte, :facebook, :google, :twitter, :mail_ru, :odnoklassniki, :reddit, :linkedin, :pinterest, :stumbleupon]
 :000 > url = 'http://www.apple.com/'
- => "https://www.ruby-toolbox.com/"
+ => "http://www.apple.com/"
 :000 > SocialShares.facebook url
  => 394927
 :000 > SocialShares.google url
@@ -30,7 +31,7 @@ Currently all methods can raise exception when there is any error with network a
 :000 > SocialShares.twitter url
  => 1164675
 :000 > SocialShares.all url
- => {:vkontakte=>44, :facebook=>399027, :google=>28346, :twitter=>1836, :mail_ru=>37, :odnoklassniki=>1, :reddit=>2361, :linkedin=>0, :pinterest=>21011}
+ => {:vkontakte=>44, :facebook=>399027, :google=>28346, :twitter=>1836, :mail_ru=>37, :odnoklassniki=>1, :reddit=>2361, :linkedin=>0, :pinterest=>21011, :stumbleupon=>43035}
 :000 > SocialShares.selected url, %w(facebook google)
  => {:facebook=>394927, :google=>28289}
 # Total sum of sharings in selected networks

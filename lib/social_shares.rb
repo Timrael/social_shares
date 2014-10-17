@@ -11,6 +11,7 @@ require 'social_shares/odnoklassniki'
 require 'social_shares/reddit'
 require 'social_shares/linkedin'
 require 'social_shares/pinterest'
+require 'social_shares/stumbleupon'
 
 module SocialShares
   class << self
@@ -23,7 +24,8 @@ module SocialShares
       :odnoklassniki,
       :reddit,
       :linkedin,
-      :pinterest
+      :pinterest,
+      :stumbleupon
     ]
 
     def supported_networks
