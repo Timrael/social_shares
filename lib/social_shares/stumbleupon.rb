@@ -1,6 +1,6 @@
 module SocialShares
   class Stumbleupon < Base
-    def shares
+    def shares!
       response = RestClient.get(url)
       JSON.parse(response)['result']['views'] || 0
     end

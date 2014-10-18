@@ -7,6 +7,13 @@ module SocialShares
     end
 
     def shares
+      shares!
+    rescue => e
+      puts "[#{self.class.name}] Error during requesting sharings of '#{checked_url}': #{e}"
+      nil
+    end
+
+    def shares!
       raise NotImplementedError
     end
   end

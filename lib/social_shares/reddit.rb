@@ -1,6 +1,6 @@
 module SocialShares
   class Reddit < Base
-    def shares
+    def shares!
       response = RestClient.get(url)
       children_data = JSON.parse(response)['data']['children']
       children_data.map{|c| c['data']['score']}.reduce(:+) || 0

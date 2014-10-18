@@ -1,6 +1,6 @@
 module SocialShares
   class Linkedin < Base
-    def shares
+    def shares!
       response = RestClient.get(url)
       JSON.parse(response)['count']
     end

@@ -1,6 +1,6 @@
 module SocialShares
   class Twitter < Base
-    def shares
+    def shares!
       response = RestClient.get(url)
       JSON.parse(response)["count"]
     end

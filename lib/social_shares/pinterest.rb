@@ -1,6 +1,6 @@
 module SocialShares
   class Pinterest < Base
-    def shares
+    def shares!
       response = RestClient.get(url)
       /count":(\d+)/.match(response)[-1].to_i
     end

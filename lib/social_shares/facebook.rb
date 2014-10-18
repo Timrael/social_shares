@@ -1,6 +1,6 @@
 module SocialShares
   class Facebook < Base
-    def shares
+    def shares!
       response = RestClient.get(url)
       JSON.parse(response)["shares"] || 0
     end

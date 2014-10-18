@@ -1,6 +1,6 @@
 module SocialShares
   class Odnoklassniki < MailRu
-    def shares
+    def shares!
       response["share_ok"].to_i
     end
   end

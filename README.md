@@ -16,7 +16,6 @@ Supported networks:
 
 Usage
 -----
-Currently all methods can raise exception when there is any error with network access.
 ```ruby
 :000 > require 'social_shares'
  => true
@@ -30,10 +29,21 @@ Currently all methods can raise exception when there is any error with network a
  => 28289
 :000 > SocialShares.twitter url
  => 1164675
+# in case of exception it will return nil value
+:000 > SocialShares.twitter url
+ => nil
+# but this method will raise it
+:000 > SocialShares.twitter! url
+  => RestClient::RequestTimeout: Request Timeout
 :000 > SocialShares.all url
- => {:vkontakte=>44, :facebook=>399027, :google=>28346, :twitter=>1836, :mail_ru=>37, :odnoklassniki=>1, :reddit=>2361, :linkedin=>0, :pinterest=>21011, :stumbleupon=>43035}
-:000 > SocialShares.selected url, %w(facebook google)
- => {:facebook=>394927, :google=>28289}
+ => {:vkontakte=>44, :facebook=>399027, :google=>28346, :twitter=>1836, :mail_ru=>37, :odnoklassniki=>1, :reddit=>2361, :linkedin=>nil, :pinterest=>21011, :stumbleupon=>43035}
+# same for #all! method, it will not handle exceptions
+:000 > SocialShares.all! url
+ => RestClient::RequestTimeout: Request Timeout
+:000 > SocialShares.selected url, %w(facebook google linkedin)
+ => {:facebook=>394927, :google=>28289, :linkedin=>nil}
+:000 > SocialShares.selected! url, %w(facebook google linkedin)
+ => RestClient::RequestTimeout: Request Timeout
 # Total sum of sharings in selected networks
 :000 > SocialShares.total url, %w(facebook google)
  => 423216
