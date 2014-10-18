@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Timur Kozmenko']
   spec.email         = ['timraell@gmail.com']
   spec.summary       = %q{Check how many times url was shared in social networks.}
-  spec.description   = %q{Check how many times url was shared in social networks.}
+  spec.description   = %q{Check how many times url was shared in social networks, e.g. share counts.}
   spec.homepage      = 'https://github.com/Timrael/social_shares'
   spec.license       = 'MIT'
 
