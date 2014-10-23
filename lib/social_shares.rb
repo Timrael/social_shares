@@ -1,19 +1,20 @@
-require 'rest-client'
-require 'json'
 require 'social_shares/version'
 require 'social_shares/base'
-require 'social_shares/facebook'
-require 'social_shares/google'
-require 'social_shares/twitter'
-require 'social_shares/vkontakte'
-require 'social_shares/mail_ru'
-require 'social_shares/odnoklassniki'
-require 'social_shares/reddit'
-require 'social_shares/linkedin'
-require 'social_shares/pinterest'
-require 'social_shares/stumbleupon'
+
+require 'rest-client'
+require 'json'
 
 module SocialShares
+  autoload :Facebook,      'social_shares/facebook'
+  autoload :Google,        'social_shares/google'
+  autoload :Twitter,       'social_shares/twitter'
+  autoload :MailRu,        'social_shares/mail_ru'
+  autoload :Odnoklassniki, 'social_shares/odnoklassniki'
+  autoload :Reddit,        'social_shares/reddit'
+  autoload :Linkedin,      'social_shares/linkedin'
+  autoload :Pinterest,     'social_shares/pinterest'
+  autoload :Stumbleupon,   'social_shares/stumbleupon'
+
   class << self
     SUPPORTED_NETWORKS = [
       :vkontakte,
