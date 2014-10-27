@@ -2,7 +2,9 @@ Social Shares
 =============
 Social shares is intended to easily check social sharings of an url.
 
-Supported networks:
+Supported networks
+------
+International:
 * [facebook](http://www.facebook.com/)
 * [google plus](https://plus.google.com)
 * [twitter](https://twitter.com/)
@@ -10,9 +12,14 @@ Supported networks:
 * [linkedin](https://www.linkedin.com/)
 * [pinterest](http://www.pinterest.com/)
 * [stumbleupon](http://www.stumbleupon.com/)
+
+Russian:
 * [vkontakte](http://vkontakte.ru/)
 * [mail.ru](http://mail.ru/)
 * [odnoklassniki](http://www.odnoklassniki.ru/)
+
+Chinese:
+* [weibo](http://www.weibo.com)
 
 Basic usage
 -----
@@ -53,7 +60,7 @@ Fetch all shares by one method (#all, #all!):
 ```ruby
 # in case of exception it will return nil
 :000 > SocialShares.all url
- => {:vkontakte=>nil, :facebook=>399027, :google=>28346, :twitter=>1836, :mail_ru=>37, :odnoklassniki=>1, :reddit=>2361, :linkedin=>33, :pinterest=>21011, :stumbleupon=>43035}
+ => {:vkontakte=>nil, :facebook=>399027, :google=>28346, :twitter=>1836, :mail_ru=>37, :odnoklassniki=>1, :reddit=>2361, :linkedin=>33, :pinterest=>21011, :stumbleupon=>43035, :weibo=>12760}
 
 # and this will raise it
 :000 > SocialShares.all! url

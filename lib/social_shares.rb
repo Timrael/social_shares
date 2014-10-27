@@ -12,6 +12,7 @@ require 'social_shares/reddit'
 require 'social_shares/linkedin'
 require 'social_shares/pinterest'
 require 'social_shares/stumbleupon'
+require 'social_shares/weibo'
 
 module SocialShares
   class << self
@@ -25,7 +26,8 @@ module SocialShares
       :reddit,
       :linkedin,
       :pinterest,
-      :stumbleupon
+      :stumbleupon,
+      :weibo,
     ]
 
     def supported_networks
