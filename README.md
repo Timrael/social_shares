@@ -12,6 +12,7 @@ International:
 * [linkedin](https://www.linkedin.com/)
 * [pinterest](http://www.pinterest.com/)
 * [stumbleupon](http://www.stumbleupon.com/)
+* [buffer](https://bufferapp.com/)
 
 Russian:
 * [vkontakte](http://vkontakte.ru/)
@@ -53,14 +54,14 @@ Advanced usage
 List of all supported networks:
 ```ruby
 :000 > SocialShares.supported_networks
- => [:vkontakte, :facebook, :google, :twitter, :mail_ru, :odnoklassniki, :reddit, :linkedin, :pinterest, :stumbleupon]
+ => [:vkontakte, :facebook, :google, :twitter, :mail_ru, :odnoklassniki, :reddit, :linkedin, :pinterest, :stumbleupon, :buffer]
 ```
 
 Fetch all shares by one method (#all, #all!):
 ```ruby
 # in case of exception it will return nil
 :000 > SocialShares.all url
- => {:vkontakte=>nil, :facebook=>399027, :google=>28346, :twitter=>1836, :mail_ru=>37, :odnoklassniki=>1, :reddit=>2361, :linkedin=>33, :pinterest=>21011, :stumbleupon=>43035, :weibo=>12760}
+ => {:vkontakte=>nil, :facebook=>399027, :google=>28346, :twitter=>1836, :mail_ru=>37, :odnoklassniki=>1, :reddit=>2361, :linkedin=>33, :pinterest=>21011, :stumbleupon=>43035, :weibo=>12760, :buffer=>1662}
 
 # and this will raise it
 :000 > SocialShares.all! url

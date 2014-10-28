@@ -13,6 +13,7 @@ require 'social_shares/linkedin'
 require 'social_shares/pinterest'
 require 'social_shares/stumbleupon'
 require 'social_shares/weibo'
+require 'social_shares/buffer'
 
 module SocialShares
   class << self
@@ -28,6 +29,7 @@ module SocialShares
       :pinterest,
       :stumbleupon,
       :weibo,
+      :buffer,
     ]
 
     def supported_networks
