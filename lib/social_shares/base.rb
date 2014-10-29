@@ -1,11 +1,5 @@
 module SocialShares
-  class Base
-    attr_accessor :checked_url
-
-    def initialize(checked_url)
-      @checked_url = checked_url
-    end
-
+  class Base < Struct.new(:checked_url)
     def shares
       shares!
     rescue => e
