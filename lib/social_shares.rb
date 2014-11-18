@@ -49,17 +49,11 @@ module SocialShares
     end
 
     def selected(url, selected_networks)
-      filtered_networks(selected_networks).inject({}) do |result, network_name|
-        result[network_name] = self.send(network_name, url)
-        result
-      end
+      selected_base(url, selected_networks, false)
     end
 
     def selected!(url, selected_networks)
-      filtered_networks(selected_networks).inject({}) do |result, network_name|
-        result[network_name] = self.send("#{network_name}!", url)
-        result
-      end
+      selected_base(url, selected_networks, true)
     end
 
     def all(url)
@@ -75,13 +69,44 @@ module SocialShares
     end
 
     def has_any?(url, selected_networks = SUPPORTED_NETWORKS)
-      !filtered_networks(selected_networks).find{|n| self.send("#{n}!", url) > 0}.nil?
+      lambdas = filtered_networks(selected_networks).map do |network_name|
+        -> {self.send("#{network_name}!", url)}
+      end
+      pool = thread_pool(lambdas)
+      found = false
+      while !pool.empty? && !found
+        sleep 0.05
+        if thread = pool.find(&:stop?)
+          if thread.value > 0
+            pool.each(&:kill)
+            found = true
+          else
+            pool.delete(thread)
+          end
+        end
+      end
+      found
     end
 
   private
 
     def filtered_networks(selected_networks)
       selected_networks.map(&:to_sym) & SUPPORTED_NETWORKS
+    end
+
+    def thread_pool(lambdas)
+      lambdas.map { |l| Thread.new { l.call } }
+    end
+
+    def selected_base(url, selected_networks, with_exception)
+      lambdas = filtered_networks(selected_networks).map do |network_name|
+        method_name = with_exception ? "#{network_name}!" : network_name
+        -> {{network_name => self.send(method_name, url)}}
+      end
+      thread_pool(lambdas).reduce({}) do |result, thread|
+        thread.join
+        result.merge(thread.value)
+      end
     end
   end
 end
