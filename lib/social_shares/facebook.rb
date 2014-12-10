@@ -1,14 +1,21 @@
 module SocialShares
   class Facebook < Base
     def shares!
-      response = RestClient.get(url)
-      JSON.parse(response)["shares"] || 0
+      response = RestClient.get url, {
+        :params => {
+          :urls => checked_url,
+          :v => '1.0',
+          :method => 'links.getStats',
+          :format => 'json'
+        }
+      }
+      JSON.parse(response)[0]["share_count"] || 0
     end
 
   private
 
     def url
-      "http://graph.facebook.com/?id=#{checked_url}"
+      "http://api.ak.facebook.com/restserver.php"
     end
   end
 end

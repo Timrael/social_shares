@@ -1,5 +1,8 @@
 Social Shares
 =============
+
+[![Gem Version](https://badge.fury.io/rb/social_shares.svg)](http://badge.fury.io/rb/social_shares)
+
 Social shares is intended to easily check social sharings of an url.
 
 Supported networks
