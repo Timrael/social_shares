@@ -11,7 +11,7 @@ module SocialShares
           :format => 'json'
         }
       })
-      JSON.parse(response)[0]["share_count"] || 0
+      JSON.parse(response)[0]['share_count'] || 0
     end
   end
 end

@@ -1,7 +1,7 @@
 module SocialShares
   class MailRu < Base
     def shares!
-      response["share_mm"].to_i
+      response['share_mm'].to_i
     end
 
   protected

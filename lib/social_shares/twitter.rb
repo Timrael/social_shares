@@ -4,7 +4,7 @@ module SocialShares
 
     def shares!
       response = RestClient.get(URL, {:params => {:url => checked_url}})
-      JSON.parse(response)["count"]
+      JSON.parse(response)['count']
     end
   end
 end
