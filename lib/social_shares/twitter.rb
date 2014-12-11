@@ -1,14 +1,10 @@
 module SocialShares
   class Twitter < Base
+    URL = 'http://cdn.api.twitter.com/1/urls/count.json'
+
     def shares!
-      response = RestClient.get url, {:params => {:url => checked_url}}
+      response = RestClient.get(URL, {:params => {:url => checked_url}})
       JSON.parse(response)["count"]
-    end
-
-  private
-
-    def url
-      "http://cdn.api.twitter.com/1/urls/count.json"
     end
   end
 end
