@@ -3,7 +3,8 @@ module SocialShares
     attr_accessor :checked_url
 
     def initialize(checked_url)
-      @checked_url = checked_url
+      # remove URI fragment
+      @checked_url = checked_url.gsub(/#.+$/, '')
     end
 
     def shares
