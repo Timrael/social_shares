@@ -1,18 +1,17 @@
 module SocialShares
   class MailRu < Base
+    URL = 'https://connect.mail.ru/share_count'
+
     def shares!
-      response['share_mm'].to_i
-    end
-
-  protected
-
-    def response
-      response = RestClient.get(url)
-      JSON.parse(response)
-    end
-
-    def url
-      "http://appsmail.ru/share/count/#{checked_url}"
+      response = RestClient.get(URL, {
+        params: {
+          func: 'foo',
+          callback: 1,
+          url_list: checked_url
+        }
+      })
+      matches = /shares":(\d+)/.match(response)
+      matches ? matches[-1].to_i : 0
     end
   end
 end

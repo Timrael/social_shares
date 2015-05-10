@@ -19,8 +19,8 @@ International:
 
 Russian:
 * [vkontakte](http://vkontakte.ru/)
-* ~~[mail.ru](http://mail.ru/)~~ (API is broken)
-* ~~[odnoklassniki](http://www.odnoklassniki.ru/)~~ (API is broken)
+* [mail.ru(aka moi mir)](http://my.mail.ru/)
+* [odnoklassniki](http://www.odnoklassniki.ru/)
 
 Chinese:
 * [weibo](http://www.weibo.com)
