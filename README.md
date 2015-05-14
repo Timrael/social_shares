@@ -5,6 +5,8 @@ Social Shares
 
 Social shares is intended to easily check social sharings of an url.
 
+You can track how many times the url was shared in various social networks, such as facebook, twitter, etc. It can be useful for some kind landings with social mechanics or for tracking network activity of your content pages.
+
 Supported networks
 ------
 International:
