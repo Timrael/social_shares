@@ -137,4 +137,4 @@ SUPPORTED_NETWORKS = [:foo, :vkontakte, :facebook]
 
 Authors
 ----
-* [Timur Kozmenko](https://twitter.com/Timrael)
+* [Timur Kozmenko](https://twitter.com/Timrael) - timraell@gmail.com
