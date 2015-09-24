@@ -3,7 +3,7 @@ module SocialShares
     URL = 'https://connect.mail.ru/share_count'
 
     def shares!
-      response = RestClient.get(URL, {
+      response = get(URL, {
         params: {
           func: 'foo',
           callback: 1,

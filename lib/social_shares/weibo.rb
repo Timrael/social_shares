@@ -4,27 +4,31 @@ module SocialShares
     URL_FOR_SHARE = 'https://api.weibo.com/2/short_url/share/counts.json'
 
     def shares!
-      response = RestClient.get(URL_FOR_SHARE, {
-        :params => {
-          :_ => '1414437609900',
-          :source => '8003029170',
-          :url_short => short_url
-        }
-      })
+      response = get(URL_FOR_SHARE, {
+                    :params => {
+                      :_ => '1414437609900',
+                      :source => '8003029170',
+                      :url_short => short_url
+                    }
+                  })
       JSON.parse(response)['urls'].first['share_counts'].to_i
+    rescue
+      0
     end
 
   private
 
     def short_url
-      response = RestClient.get(URL_FOR_SHORT, {
-        :params => {
-          :_ => '1414437609673',
-          :source => '8003029170',
-          :url_long => checked_url
-        }
-      })
+      response = get(URL_FOR_SHORT, {
+                    :params => {
+                      :_ => '1414437609673',
+                      :source => '8003029170',
+                      :url_long => checked_url
+                    }
+                  })
       JSON.parse(response)['urls'].first['url_short']
+    rescue
+      0
     end
   end
 end
