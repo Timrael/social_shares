@@ -3,7 +3,7 @@ module SocialShares
     URL = 'https://clients6.google.com/rpc?key=AIzaSyCKSbrvQasunBoV16zDH9R33D88CeLr9gQ'
 
     def shares!
-      response = RestClient.post(URL, JSON.dump(params), content_type: :json, accept: :json)
+      response = post(URL, JSON.dump(params), {content_type: :json, accept: :json})
       JSON.parse(response)[0]['result']['metadata']['globalCounts']['count'].to_i
     end
 

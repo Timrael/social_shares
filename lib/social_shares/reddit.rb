@@ -3,7 +3,7 @@ module SocialShares
     URL = 'http://www.reddit.com/api/info.json'
 
     def shares!
-      response = RestClient.get(URL, {:params => {:url => checked_url}})
+      response = get(URL, {:params => {:url => checked_url}})
       children_data = JSON.parse(response)['data']['children']
       children_data.map{|c| c['data']['score']}.reduce(:+) || 0
     end

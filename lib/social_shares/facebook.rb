@@ -3,7 +3,7 @@ module SocialShares
     URL = 'https://graph.facebook.com/fql'
 
     def shares!
-      response = RestClient.get(URL, {
+      response = get(URL, {
         :params => {
           :q => "SELECT share_count FROM link_stat WHERE url='#{checked_url}'"
         }

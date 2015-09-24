@@ -3,7 +3,7 @@ module SocialShares
     URL = 'https://api.bufferapp.com/1/links/shares.json'
 
     def shares!
-      response = RestClient.get(URL, {:params => {:url => checked_url}})
+      response = get(URL, {:params => {:url => checked_url}})
       JSON.parse(response)['shares']
     end
   end
