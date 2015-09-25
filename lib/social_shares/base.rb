@@ -1,6 +1,6 @@
 module SocialShares
   class Base
-    TIMEOUT = OPEN_TIMEOUT = 5
+    TIMEOUT = OPEN_TIMEOUT = 3
     attr_accessor :checked_url
 
     def initialize(checked_url)
