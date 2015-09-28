@@ -10,8 +10,6 @@ module SocialShares
                     }
                   })
       JSON.parse(response)['count']
-    rescue
-      0
     end
   end
 end

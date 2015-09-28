@@ -12,8 +12,6 @@ module SocialShares
                     }
                   })
       JSON.parse(response)['urls'].first['share_counts'].to_i
-    rescue
-      0
     end
 
   private
@@ -27,8 +25,6 @@ module SocialShares
                     }
                   })
       JSON.parse(response)['urls'].first['url_short']
-    rescue
-      0
     end
   end
 end

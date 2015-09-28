@@ -5,8 +5,6 @@ module SocialShares
     def shares!
       response = post(URL, JSON.dump(params), {content_type: :json, accept: :json})
       JSON.parse(response)[0]['result']['metadata']['globalCounts']['count'].to_i
-    rescue
-      0
     end
 
   private

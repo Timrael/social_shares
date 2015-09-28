@@ -5,8 +5,6 @@ module SocialShares
     def shares!
       response = get(URL, {:params => {:url => checked_url}})
       JSON.parse(response)['result']['views'] || 0
-    rescue
-      0
     end
   end
 end
