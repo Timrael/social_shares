@@ -15,16 +15,18 @@ module SocialShares
       nil
     end
 
+    def shares!
+      raise NotImplementedError
+    end
+
+  protected
+
     def get(url, params)
       RestClient::Resource.new(url, timeout: TIMEOUT, open_timeout: OPEN_TIMEOUT).get(params)
     end
 
     def post(url, params, headers = {})
       RestClient::Resource.new(url, timeout: TIMEOUT, open_timeout: OPEN_TIMEOUT).post(params, headers)
-    end
-
-    def shares!
-      raise NotImplementedError
     end
   end
 end
