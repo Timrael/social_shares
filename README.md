@@ -12,7 +12,7 @@ Supported networks
 International:
 * [facebook](http://www.facebook.com/)
 * [google plus](https://plus.google.com)
-* [twitter](https://twitter.com/)
+* ~~[twitter](https://twitter.com/)~~ Looking for another way, because [API have been closed officially](https://blog.twitter.com/2015/hard-decisions-for-a-sustainable-platform)
 * [reddit](http://www.reddit.com/)
 * [linkedin](https://www.linkedin.com/)
 * [pinterest](http://www.pinterest.com/)
