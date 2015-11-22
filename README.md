@@ -74,6 +74,16 @@ Fetch all shares by one method (#all, #all!):
  => RestClient::RequestTimeout: Request Timeout
 ```
 
+Fetch shares by excluding networks(#omit, #omit!):
+```ruby
+:000 > SocialShares.omit url, %w(facebook)
+ => { :google=>28289, :linkedin=>nil, ... }
+
+# same here
+:000 > SocialShares.omit! url, %w(facebook)
+ => RestClient::RequestTimeout: Request Timeout
+```
+
 Fetch shares of selected networks(#selected, #selected!):
 ```ruby
 :000 > SocialShares.selected url, %w(facebook google linkedin)
