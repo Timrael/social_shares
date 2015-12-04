@@ -51,11 +51,11 @@ module SocialShares
     end
 
     def omit(url, excluded_networks = [])
-      selected_base(url, supported_networks - excluded_networks, false)
+      selected_base(url, supported_networks.map(&:to_s) - excluded_networks.map(&:to_s), false)
     end
 
     def omit!(url, excluded_networks = [])
-      selected_base(url, supported_networks - excluded_networks, true)
+      selected_base(url, supported_networks.map(&:to_s) - excluded_networks.map(&:to_s), true)
     end
 
     def selected(url, selected_networks)
@@ -101,7 +101,7 @@ module SocialShares
   private
 
     def filtered_networks(selected_networks)
-      selected_networks.map(&:to_sym) & SUPPORTED_NETWORKS
+      selected_networks.map(&:to_s) & SUPPORTED_NETWORKS.map(&:to_s)
     end
 
     def thread_pool(lambdas)
