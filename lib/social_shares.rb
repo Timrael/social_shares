@@ -50,6 +50,14 @@ module SocialShares
       end
     end
 
+    def omit(url, excluded_networks = [])
+      selected_base(url, supported_networks - excluded_networks, false)
+    end
+
+    def omit!(url, excluded_networks = [])
+      selected_base(url, supported_networks - excluded_networks, true)
+    end
+
     def selected(url, selected_networks)
       selected_base(url, selected_networks, false)
     end
