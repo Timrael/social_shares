@@ -145,6 +145,12 @@ SUPPORTED_NETWORKS = [:foo, :vkontakte, :facebook]
 ```
 * Update README: add link to list, possible answer in #all method, etc.
 
-Authors
+Author
 ----
 * [Timur Kozmenko](https://twitter.com/Timrael) - timraell@gmail.com
+
+Contributors
+----
+* [Hamed Ramezanian](https://github.com/iCEAGE)
+* [Ciocanel Razvan](https://github.com/Chocksy)
+* [Mehdi FARSI](https://github.com/mehdi-farsi)
