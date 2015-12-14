@@ -112,7 +112,18 @@ Does any network have at least one link?
 ```
 Note that #has_any? is faster than (#total > 0), because it stops on first network that has at least 1 sharing
 
-Instalation
+Try it by yourself before installation
+-----
+Send request through shell to test numbers. Please do NOT use this url in your projects.
+```bash
+curl -X POST -d '{"url": "http://www.apple.com", "networks": ["facebook", "google", "reddit"]}' https://social-shares-api-cedar-14.herokuapp.com/
+```
+You will see:
+```bash
+{"facebook":312412,"google":46088,"reddit":114}
+```
+
+Installation
 -----
 Include the gem in your Gemfile:
 ```
