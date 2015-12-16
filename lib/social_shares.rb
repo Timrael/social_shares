@@ -41,12 +41,14 @@ module SocialShares
     SUPPORTED_NETWORKS.each do |network_name|
       define_method(network_name) do |url|
         class_name = network_name.to_s.split('_').map(&:capitalize).join
-        SocialShares.const_get(class_name).new(url).shares
+        cache_name = "#{class_name}_#{url.parameterize.underscore}"
+        Rails.cache.fetch(cache_name) { SocialShares.const_get(class_name).new(url).shares }
       end
 
       define_method("#{network_name}!") do |url|
         class_name = network_name.to_s.split('_').map(&:capitalize).join
-        SocialShares.const_get(class_name).new(url).shares!
+        cache_name = "#{class_name}_#{url.parameterize.underscore}"
+        Rails.cache.fetch(cache_name) { SocialShares.const_get(class_name).new(url).shares! }
       end
     end
 
