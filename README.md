@@ -112,6 +112,39 @@ Does any network have at least one link?
 ```
 Note that #has_any? is faster than (#total > 0), because it stops on first network that has at least 1 sharing
 
+Caching
+-----
+
+The gem uses Rails.cache for caching. If you don't define any `cache_store` then rails will use the `file_store` by default and store the counts into the tmp directory.
+
+Here are some examples of configuration needed for caching with other serives than file_store:
+
+#### Redis:
+
+```ruby
+# Gemfile
+gem 'redis-rails'
+```
+
+```ruby
+# config/initializers/redis_store.rb
+redis_url = ENV["REDISCLOUD_URL"] || "redis://127.0.0.1:6379/0/social_shares"
+SocialShares::Application.config.cache_store = :redis_store, redis_url, { expires_in: 5.minutes }
+```
+
+#### Memcached:
+
+```ruby
+# Gemfile
+gem 'dalli'
+gem 'memcachier'
+```
+
+```ruby
+# config/environments/production.rb
+config.cache_store = :dalli_store, { expires_in: 5.minutes }
+```
+
 Try it by yourself before installation
 -----
 Send request through shell to test numbers. Please do NOT use this url in your projects.
