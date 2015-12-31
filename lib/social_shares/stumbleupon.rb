@@ -3,7 +3,8 @@ module SocialShares
     URL = 'http://www.stumbleupon.com/services/1.01/badge.getinfo'
 
     def shares!
-      response = get(URL, {:params => {:url => checked_url}})
+      response = get(URL, params: { url: checked_url })
+
       JSON.parse(response)['result']['views'] || 0
     end
   end

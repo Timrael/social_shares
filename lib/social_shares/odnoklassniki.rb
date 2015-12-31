@@ -10,6 +10,7 @@ module SocialShares
           ref: checked_url
         }
       })
+
       /'(\d+)'\)/.match(response)[-1].to_i
     end
   end

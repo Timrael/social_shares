@@ -4,10 +4,11 @@ module SocialShares
 
     def shares!
       response = get(URL, {
-        :params => {
-          :q => "SELECT share_count FROM link_stat WHERE url='#{checked_url}'"
+        params: {
+          q: "SELECT share_count FROM link_stat WHERE url='#{checked_url}'"
         }
       })
+
       JSON.parse(response)['data'][0]['share_count'] || 0
     end
   end

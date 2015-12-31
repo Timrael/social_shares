@@ -10,6 +10,7 @@ module SocialShares
           url_list: checked_url
         }
       })
+
       matches = /shares":(\d+)/.match(response)
       matches ? matches[-1].to_i : 0
     end

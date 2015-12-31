@@ -4,11 +4,12 @@ module SocialShares
 
     def shares!
       response = get(URL, {
-                    :params => {
-                      :url => checked_url,
-                      :format => 'json'
-                    }
-                  })
+        params: {
+          url: checked_url,
+          format: 'json'
+        }
+      })
+
       JSON.parse(response)['count']
     end
   end

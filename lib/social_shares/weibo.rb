@@ -5,12 +5,13 @@ module SocialShares
 
     def shares!
       response = get(URL_FOR_SHARE, {
-                    :params => {
-                      :_ => '1414437609900',
-                      :source => '8003029170',
-                      :url_short => short_url
-                    }
-                  })
+        params: {
+          _: '1414437609900',
+          source: '8003029170',
+          url_short: short_url
+        }
+      })
+
       JSON.parse(response)['urls'].first['share_counts'].to_i
     end
 
