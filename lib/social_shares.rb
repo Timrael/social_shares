@@ -1,5 +1,6 @@
 require 'rest-client'
 require 'json'
+require 'social_shares/string_helper'
 require 'social_shares/version'
 require 'social_shares/base'
 require 'social_shares/facebook'
@@ -18,6 +19,12 @@ require 'social_shares/yandex'
 
 module SocialShares
   class << self
+    include SocialShares::StringHelper
+
+    def config=(val)
+      SocialShares::Base.config = val
+    end
+
     SUPPORTED_NETWORKS = [
       :vkontakte,
       :facebook,
@@ -40,12 +47,12 @@ module SocialShares
 
     SUPPORTED_NETWORKS.each do |network_name|
       define_method(network_name) do |url|
-        class_name = network_name.to_s.split('_').map(&:capitalize).join
+        class_name = to_camel_case(network_name.to_s)
         SocialShares.const_get(class_name).new(url).shares
       end
 
       define_method("#{network_name}!") do |url|
-        class_name = network_name.to_s.split('_').map(&:capitalize).join
+        class_name = to_camel_case(network_name.to_s)
         SocialShares.const_get(class_name).new(url).shares!
       end
     end

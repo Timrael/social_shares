@@ -112,6 +112,21 @@ Does any network have at least one link?
 ```
 Note that #has_any? is faster than (#total > 0), because it stops on first network that has at least 1 sharing
 
+Configuring
+-----
+You can specify timeout and open_timeout for each social network
+```ruby
+SocialShares.config = {
+  twitter: {timeout: 4, open_timeout: 7},
+  facebook: {timeout: 10, open_timeout: 15}
+}
+```
+
+- `:open_timeout` is the timeout for opening the connection. This is useful if you are calling servers with slow or shaky response times. Default value is 3 seconds.
+- `:timeout` is the timeout for reading the answer. This is useful to make sure you will not get stuck half way in the reading process, or get stuck reading a 5 MB file when you're expecting 5 KB of JSON. Default value is 3 seconds.
+
+If you use Rails, you can create file `config/initializers/social_shares.rb` and fill it with this config.
+
 Try it by yourself before installation
 -----
 Send request through shell to test numbers. Please do NOT use this url in your projects.
