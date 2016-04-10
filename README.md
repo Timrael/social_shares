@@ -23,7 +23,6 @@ Russian:
 * [vkontakte](http://vkontakte.ru/)
 * [mail.ru(aka moi mir)](http://my.mail.ru/)
 * [odnoklassniki](http://www.odnoklassniki.ru/)
-* [yandex](http://yandex.ru/) (currently on beta, most of time returns 0)
 
 Chinese:
 * [weibo](http://www.weibo.com)
@@ -67,7 +66,7 @@ Fetch all shares by one method (#all, #all!):
 ```ruby
 # in case of exception it will return nil
 :000 > SocialShares.all url
- => {:vkontakte=>nil, :facebook=>399027, :google=>28346, :twitter=>1836, :mail_ru=>37, :odnoklassniki=>1, :reddit=>2361, :linkedin=>33, :pinterest=>21011, :stumbleupon=>43035, :weibo=>12760, :buffer=>1662, :yandex=>0}
+ => {:vkontakte=>nil, :facebook=>399027, :google=>28346, :twitter=>1836, :mail_ru=>37, :odnoklassniki=>1, :reddit=>2361, :linkedin=>33, :pinterest=>21011, :stumbleupon=>43035, :weibo=>12760, :buffer=>1662}
 
 # and this will raise it
 :000 > SocialShares.all! url
