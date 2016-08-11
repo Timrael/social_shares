@@ -5,7 +5,7 @@ module SocialShares
     def shares!
       response = get(URL, params: { url: checked_url })
 
-      /count":(\d+)/.match(response)[-1].to_i
+      /count":(\d+)/.match(response.body)[-1].to_i
     end
   end
 end

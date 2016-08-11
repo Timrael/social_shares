@@ -11,7 +11,7 @@ module SocialShares
         }
       })
 
-      /'(\d+)'\)/.match(response)[-1].to_i
+      /'(\d+)'\)/.match(response.body)[-1].to_i
     end
   end
 end
