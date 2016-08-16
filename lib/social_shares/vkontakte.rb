@@ -11,7 +11,7 @@ module SocialShares
         }
       })
 
-      /VK.Share.count\(1,\s(\d+)\)/.match(response)[1].to_i
+      /VK.Share.count\(1,\s(\d+)\)/.match(response.body)[1].to_i
     end
   end
 end
