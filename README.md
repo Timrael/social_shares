@@ -27,6 +27,9 @@ Russian:
 Chinese:
 * [weibo](http://www.weibo.com)
 
+Japanese:
+* [hatebu](http://b.hatena.ne.jp/)
+
 Basic usage
 -----
 ```ruby
