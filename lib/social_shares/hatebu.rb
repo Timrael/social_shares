@@ -6,8 +6,8 @@ module SocialShares
       response = get(URL, params: {
         url: checked_url
       })
-
-      response.body.empty? ? 0 : response.body.to_i
+      # response.body.to_i returns status code instead of body converted to integer
+      response.body.empty? ? 0 : response.body.to_f.to_i
     end
   end
 end
