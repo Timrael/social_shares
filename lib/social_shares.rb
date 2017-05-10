@@ -15,6 +15,7 @@ require 'social_shares/pinterest'
 require 'social_shares/stumbleupon'
 require 'social_shares/weibo'
 require 'social_shares/buffer'
+require 'social_shares/hatebu'
 
 module SocialShares
   class << self
@@ -37,6 +38,7 @@ module SocialShares
       :stumbleupon,
       :weibo,
       :buffer,
+      :hatebu,
     ]
 
     def supported_networks
