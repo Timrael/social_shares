@@ -4,8 +4,7 @@ module SocialShares
 
     def shares!
       response = get(URL, params: { url: checked_url })
-
-      JSON.parse(response)['result']['views'] || 0
+      JSON.parse(response).dig('result', 'views').to_i
     end
   end
 end
