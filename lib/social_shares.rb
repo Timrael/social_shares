@@ -29,7 +29,7 @@ module SocialShares
       :vkontakte,
       :facebook,
       :google,
-      # :twitter,
+      :twitter,
       :mail_ru,
       :odnoklassniki,
       :reddit,
